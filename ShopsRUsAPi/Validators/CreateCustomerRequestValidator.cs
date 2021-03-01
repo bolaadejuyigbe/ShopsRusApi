@@ -11,12 +11,8 @@ namespace ShopsRUsAPi.Validators
     {
         public  CreateCustomerRequestValidator()
         {
-            RuleFor(x => x.Name)
-                .NotEmpty()
-                .Matches("^[a-zA-Z0-9 ]*$");
-            RuleFor(x => x.MobileNum)
-               .NotEmpty()
-               .Matches("^[0-9]{3}-[0-9]{4}-[0-9]{4}$");
+           
+           
 
         }
     }

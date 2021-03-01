@@ -26,7 +26,11 @@ namespace ShopsRUsAPi.Controllers
         }
 
         // GET: api/Product
-      
+              /// <summary>
+              /// 
+              /// </summary>
+              /// <param name="paginationFilter"></param>
+              /// <returns></returns>
         [HttpGet(ApiRoutes.Products.GetAll)]
         public async Task<IActionResult> GetAll([FromQuery]PaginationFIlters paginationFilter)
         {
@@ -52,6 +56,11 @@ namespace ShopsRUsAPi.Controllers
         }
 
         // GET: api/Product/5
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <returns></returns>
         [HttpGet(ApiRoutes.Products.Get)]
         public async Task<IActionResult> GetProductById([FromRoute] long productId)
         {
@@ -70,6 +79,11 @@ namespace ShopsRUsAPi.Controllers
             }
 
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         [HttpGet(ApiRoutes.Products.GetbyName)]
         public async Task<IActionResult> GetProductByName([FromRoute] string name)
         {
@@ -90,6 +104,11 @@ namespace ShopsRUsAPi.Controllers
 
         }
         // POST: api/Product
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Request"></param>
+        /// <returns></returns>
         [HttpPost(ApiRoutes.Products.Create)]
         public async Task<IActionResult> Create([FromBody] CreateProducts Request)
         {
@@ -139,6 +158,12 @@ namespace ShopsRUsAPi.Controllers
 
         }
         // PUT: api/Product/5
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPut(ApiRoutes.Products.Update)]
         public async Task<IActionResult> Update([FromRoute] long productId, [FromBody] Product request)
         {
@@ -179,6 +204,11 @@ namespace ShopsRUsAPi.Controllers
         }
 
         // DELETE: api/ApiWithActions/5
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <returns></returns>
         [HttpDelete(ApiRoutes.Products.Delete)]
         public async Task<IActionResult> Delete([FromRoute] long productId)
         {

@@ -25,7 +25,15 @@ namespace ShopsRUsAPi.Controllers
             this.customerService = customerService;
             this.logger = logger;
         }
-
+        /// <summary>
+        /// Get All customer Using Pagination
+        /// </summary>
+        /// <param name="paginationFilter">Pagenumber</param>
+        /// <returns>All customeCustomer</returns>
+        ///  <response code="200">Retrieves Customers succesfully</response>
+        /// <response code="400">Unable to Retrieve Customers from Database due to validation error</response>
+        /// <response code="404">Not Found</response>
+        /// <response code="500">Internal server error</response>
         [HttpGet(ApiRoutes.Customers.GetAll)]
         public async Task<IActionResult> GetAll(PaginationFIlters paginationFilter)
         {
@@ -51,6 +59,17 @@ namespace ShopsRUsAPi.Controllers
            
 
         }
+        /// <summary>
+        /// Retrieves Customer By Id 
+        /// </summary>
+        /// <param name="customerId">CustomerId</param>
+        /// <returns>Returns Customer with a specific Id</returns>
+        ///  <response code="200">Retrieves Customers succesfully</response>
+        /// <response code="400">Unable to Retrieve Customers with Specified Id from Database due to validation error</response>
+        /// <response code="404">Not Found</response>
+        /// <response code="500">Internal server error</response>
+        [Consumes("application/json")]  
+        [Produces("application/json")]
         [HttpGet(ApiRoutes.Customers.Get)]
         public async Task<IActionResult> GetCustomerById([FromRoute] long customerId)
         {
@@ -69,8 +88,18 @@ namespace ShopsRUsAPi.Controllers
           
         }
 
-       
 
+        /// <summary>
+        /// Create Customer
+        /// </summary>
+        /// <param name="Request"></param>
+        /// <returns>Create Customer Successsfully</returns>
+        ///  <response code="201">Customers Created</response>
+        /// <response code="400">Unable to Create Customers with Specified Id from Database due to validation error</response>
+        /// <response code="404">Not Found</response>
+        /// <response code="500">Internal server error</response>
+        [Consumes("application/json")]
+        [Produces("application/json")]
         [HttpPost(ApiRoutes.Customers.Create)]
         public async Task<IActionResult> Create([FromBody] CreateCustomer Request)
         {
@@ -82,7 +111,7 @@ namespace ShopsRUsAPi.Controllers
                 }
 
              
-                if (Request.isAffiliate == true && Request.isAffiliate == true)
+                if (Request.isAffiliate == true && Request.isEmployee == true)
                 {
                    
                    return BadRequest(new ErrorResponse(new ErrorModel { Message = "You Cannot Be an Affiliate And an Employee Kindly Pick one RoLe" }));
@@ -119,6 +148,15 @@ namespace ShopsRUsAPi.Controllers
          
 
         }
+        /// <summary>
+        /// Return Customer With a Specific Name
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        ///  <response code="200">Retrieves Customer succesfully</response>
+        /// <response code="400">Unable to Retrieve Customers with Specified Name from Database due to validation error</response>
+        /// <response code="404">Not Found</response>
+        /// <response code="500">Internal server error</response>
         [HttpGet(ApiRoutes.Customers.GetbyName)]
         public async Task<IActionResult> GetCustomerByName([FromRoute] string name)
         {
@@ -144,7 +182,7 @@ namespace ShopsRUsAPi.Controllers
         {
             return new CustomerResponse
             {
-               
+               Id = model.CustomerId,
                 Address = model.Address,
                 Datecreated = model.Datecreated,
                 isAffiliate = model.isAffiliate,

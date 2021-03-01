@@ -24,6 +24,16 @@ namespace ShopsRUsAPi.Controllers
             this.logger = logger;
         }
 
+
+        /// <summary>
+        /// Get list of Discount
+        /// </summary>
+        /// <param name="paginationFilter"></param>
+        /// <returns>All customeCustomer</returns>
+        ///  <response code="200">Retrieves Discounts succesfully</response>
+        /// <response code="400">Unable to Retrieve Discount from Database due to validation error</response>
+        /// <response code="404">Not Found</response>
+        /// <response code="500">Internal server error</response>
         [HttpGet(ApiRoutes.Discount.GetAll)]
         public async Task<IActionResult> GetAll(PaginationFIlters paginationFilter)
         {
@@ -49,7 +59,11 @@ namespace ShopsRUsAPi.Controllers
 
 
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         [HttpGet(ApiRoutes.Discount.Get)]
         public async Task<IActionResult> GetDiscountPercentageByType([FromRoute] string type)
         {
@@ -69,7 +83,11 @@ namespace ShopsRUsAPi.Controllers
 
 
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="discountId"></param>
+        /// <returns></returns>
         [HttpDelete(ApiRoutes.Discount.Delete)]
         public async Task<IActionResult> Delete([FromRoute] long  discountId)
         {
@@ -89,7 +107,11 @@ namespace ShopsRUsAPi.Controllers
            
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Request"></param>
+        /// <returns></returns>
         [HttpPost(ApiRoutes.Discount.Create)]
         public async Task<IActionResult> Create([FromBody] CreateDiscount Request)
         {

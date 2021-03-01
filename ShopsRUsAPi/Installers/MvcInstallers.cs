@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using ShopsRUsAPi.Filters;
 using FluentValidation.AspNetCore;
 using ShopsRUsAPi.Validators;
+using System.IO;
+using System.Reflection;
 
 namespace ShopsRUsAPi.Installers
 {
@@ -22,6 +24,7 @@ namespace ShopsRUsAPi.Installers
 
             services.AddMvc(
                 options => {
+                   
                     options.EnableEndpointRouting = false;
                    options.Filters.Add<ValidationFilter>();
 
@@ -31,12 +34,15 @@ namespace ShopsRUsAPi.Installers
             services.AddSwaggerGen(x =>
             {
                 x.SwaggerDoc("v1", new OpenApiInfo { Title = "ShopsRUs API", Version = "V1" });
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                x.IncludeXmlComments(xmlPath);
                 //var security = new Dictionary<string, IEnumerable<string>>
                 //{
                 //    {"Bearer", new string[0]}
                 //};
 
-              
+
 
             });
             services.AddControllersWithViews()

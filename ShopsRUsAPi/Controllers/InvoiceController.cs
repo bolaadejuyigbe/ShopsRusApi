@@ -31,7 +31,11 @@ namespace ShopsRUsAPi.Controllers
         }
 
    
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="invoiceId"></param>
+        /// <returns></returns>
         // GET: api/Invoice/5
         [HttpGet(ApiRoutes.Invoice.Get)]
         public async Task<ActionResult<decimal>> GetTotalAmountByInvoiceId([FromRoute] long invoiceId)
@@ -55,7 +59,13 @@ namespace ShopsRUsAPi.Controllers
 
         }
 
+
         // POST: api/Invoice
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Request"></param>
+        /// <returns></returns>
         [HttpPost(ApiRoutes.Invoice.Create)]
         public async Task<IActionResult> Create([FromBody] CreateInvoice Request)
         {
