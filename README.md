@@ -12,11 +12,14 @@ ShopRusApi:
 4.	   create a folder called sqlite in your C drive 
 
 
-5           Then open sqlite Terminal and create an sqlite database in that directory
+
+5             Then open sqlite Terminal and create an sqlite database in that directory
 
 
 
-6              Replace the connection string and Run Add-migration on your Visual studio
+
+
+6               Replace the connection string and Run Add-migration on your Visual studio
 
 
    
