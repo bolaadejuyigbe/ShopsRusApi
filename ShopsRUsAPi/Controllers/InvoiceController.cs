@@ -30,13 +30,16 @@ namespace ShopsRUsAPi.Controllers
 
         }
 
-   
+
         /// <summary>
-        /// 
+        /// Get Amount By invoice_Id
         /// </summary>
         /// <param name="invoiceId"></param>
-        /// <returns></returns>
-        // GET: api/Invoice/5
+        /// <returns>Amount for a particular Invoice</returns>
+        /// <response code="200">Returns price for Invoice succesfully</response>
+        /// <response code="400">Unable to Return Invoice Price due to validation error</response>
+        /// <response code="404">Not Found</response>
+        /// <response code="500">Internal server error</response>
         [HttpGet(ApiRoutes.Invoice.Get)]
         public async Task<ActionResult<decimal>> GetTotalAmountByInvoiceId([FromRoute] long invoiceId)
         {
@@ -62,10 +65,14 @@ namespace ShopsRUsAPi.Controllers
 
         // POST: api/Invoice
         /// <summary>
-        /// 
+        /// Create Invoice
         /// </summary>
         /// <param name="Request"></param>
-        /// <returns></returns>
+        /// <returns>Inoice Created Successfully</returns>
+        /// <response code="201">Create Invoice succesfully</response>
+        /// <response code="400">Unable to Create Invoice Price due to validation error</response>
+        /// <response code="404">Not Found</response>
+        /// <response code="500">Internal server error</response>
         [HttpPost(ApiRoutes.Invoice.Create)]
         public async Task<IActionResult> Create([FromBody] CreateInvoice Request)
         {
