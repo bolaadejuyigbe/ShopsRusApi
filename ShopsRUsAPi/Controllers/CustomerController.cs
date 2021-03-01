@@ -29,7 +29,7 @@ namespace ShopsRUsAPi.Controllers
         /// Get All customer Using Pagination
         /// </summary>
         /// <param name="paginationFilter">Pagenumber</param>
-        /// <returns>All customeCustomer</returns>
+        /// <returns>All Customer</returns>
         ///  <response code="200">Retrieves Customers succesfully</response>
         /// <response code="400">Unable to Retrieve Customers from Database due to validation error</response>
         /// <response code="404">Not Found</response>

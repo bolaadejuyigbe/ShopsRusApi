@@ -64,7 +64,7 @@ namespace ShopsRUsAPi
             });
             app.UseSwaggerUI(Option =>
             {
-                Option.SwaggerEndpoint(swaggerOptions.UIEndpoint, swaggerOptions.Description);
+                Option.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
             });
 
 

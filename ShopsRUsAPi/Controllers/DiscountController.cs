@@ -29,7 +29,7 @@ namespace ShopsRUsAPi.Controllers
         /// Get list of Discount
         /// </summary>
         /// <param name="paginationFilter"></param>
-        /// <returns>All customeCustomer</returns>
+        /// <returns>All Discount</returns>
         ///  <response code="200">Retrieves Discounts succesfully</response>
         /// <response code="400">Unable to Retrieve Discount from Database due to validation error</response>
         /// <response code="404">Not Found</response>
@@ -60,10 +60,15 @@ namespace ShopsRUsAPi.Controllers
 
         }
         /// <summary>
-        /// 
+        /// Get discount by Type
         /// </summary>
         /// <param name="type"></param>
-        /// <returns></returns>
+  
+        /// <returns>Discount with A specific Type </returns>
+        ///  <response code="200">Retrieves Discounts with Specified Type succesfully</response>
+        /// <response code="400">Unable to Retrieve Discount from Database due to validation error</response>
+        /// <response code="404">Not Found</response>
+        /// <response code="500">Internal server error</response>
         [HttpGet(ApiRoutes.Discount.Get)]
         public async Task<IActionResult> GetDiscountPercentageByType([FromRoute] string type)
         {
@@ -84,10 +89,14 @@ namespace ShopsRUsAPi.Controllers
 
         }
         /// <summary>
-        /// 
+        /// Delete Discount
         /// </summary>
         /// <param name="discountId"></param>
-        /// <returns></returns>
+        /// <returns>No content</returns>
+        ///  <response code="204">Delete Discount with Specified Id succesfully</response>
+        /// <response code="400">Unable to Delete Discount from Database due to validation error</response>
+        /// <response code="404">Not Found</response>
+        /// <response code="500">Internal server error</response>
         [HttpDelete(ApiRoutes.Discount.Delete)]
         public async Task<IActionResult> Delete([FromRoute] long  discountId)
         {
@@ -108,10 +117,14 @@ namespace ShopsRUsAPi.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Create Discount 
         /// </summary>
         /// <param name="Request"></param>
-        /// <returns></returns>
+        /// <returns>discount Created </returns>
+        /// <response code="201">Create Discounts succesfully</response>
+        /// <response code="400">Unable to Create Discount from Database due to validation error</response>
+        /// <response code="404">Not Found</response>
+        /// <response code="500">Internal server error</response>
         [HttpPost(ApiRoutes.Discount.Create)]
         public async Task<IActionResult> Create([FromBody] CreateDiscount Request)
         {
